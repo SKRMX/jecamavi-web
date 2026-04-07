@@ -17,10 +17,11 @@ const solutionOptions = [
 
 const budgetOptions = [
   { value: "", label: "Rango de inversión..." },
-  { value: "50k-150k", label: "$50K — $150K MXN" },
-  { value: "150k-300k", label: "$150K — $300K MXN" },
-  { value: "300k-500k", label: "$300K — $500K MXN" },
-  { value: "500k+", label: "$500K+ MXN" },
+  { value: "3.5k-8k", label: "$3,500 — $8,000 MXN (Landing Page)" },
+  { value: "9k-30k", label: "$9,000 — $30,000 MXN (eCommerce)" },
+  { value: "50k-150k", label: "$50K — $150K MXN (Software / SaaS)" },
+  { value: "150k-300k", label: "$150K — $300K MXN (Plataforma Enterprise)" },
+  { value: "300k+", label: "$300K+ MXN (Sistema de Misión Crítica)" },
   { value: "no-seguro", label: "No estoy seguro" },
 ];
 

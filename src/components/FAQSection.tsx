@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "¿Cuál es el rango de inversión?",
     answer:
-      "Cada proyecto es único. Un MVP inicia desde $150,000 MXN. Plataformas enterprise complejas pueden superar los $500,000 MXN. En la auditoría inicial gratuita te damos un estimado preciso basado en alcance real.",
+      "Manejamos tres rangos según el tipo de proyecto: Landing Pages desde $3,500 hasta $8,000 MXN. Tiendas eCommerce entre $9,000 y $30,000 MXN. Plataformas de software a medida, SaaS y sistemas enterprise desde $50,000 MXN en adelante. En la auditoría inicial gratuita te damos un estimado preciso basado en alcance real.",
   },
 ];
 
