@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
 
@@ -55,9 +56,20 @@ export default function Footer() {
         <div className="w-full h-px bg-white/5 mb-8" />
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs tracking-wider text-jecamavi-slate/60">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs tracking-wider text-jecamavi-slate/60">
           <p>© 2026 JECAMAVI — Innovación Esencial.</p>
-          <p>Coatzacoalcos, México | Alcance Global</p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            <Link href="/privacidad" className="hover:text-jecamavi-gold transition-colors">
+              Aviso de Privacidad
+            </Link>
+            <Link href="/terminos" className="hover:text-jecamavi-gold transition-colors">
+              Términos y Condiciones
+            </Link>
+            <Link href="/cookies" className="hover:text-jecamavi-gold transition-colors">
+              Política de Cookies
+            </Link>
+          </div>
+          <p>Coatzacoalcos, México.</p>
         </div>
       </div>
     </footer>

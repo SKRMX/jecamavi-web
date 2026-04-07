@@ -180,3 +180,36 @@ section {
          focus:outline-none focus:border-jecamavi-gold focus:ring-1 focus:ring-jecamavi-gold/30
          transition-all duration-300;
 }
+
+/* Legal pages typography styles */
+.prose-legal {
+  @apply text-sm leading-relaxed text-[var(--text-secondary)];
+}
+
+.prose-legal strong {
+  @apply font-semibold text-[var(--text-primary)];
+}
+
+.prose-legal ul {
+  @apply list-disc list-outside ml-5 mb-6 space-y-2;
+}
+
+.prose-legal li {
+  @apply pl-1;
+}
+
+.legal-section {
+  @apply mb-10;
+}
+
+.legal-section h2 {
+  @apply font-heading text-lg font-semibold text-[var(--text-primary)] mb-4;
+}
+
+.legal-section h3 {
+  @apply font-heading text-base font-medium text-[var(--text-primary)] mt-6 mb-3;
+}
+
+.legal-section p {
+  @apply mb-4;
+}
