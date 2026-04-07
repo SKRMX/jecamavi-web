@@ -154,6 +154,32 @@ export default function MethodologySection() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Sprint Deliverables */}
+        <ScrollReveal delay={600}>
+          <div className="mt-14 text-center">
+            <p className="body-text text-sm max-w-2xl mx-auto mb-6">
+              <strong className="text-jecamavi-gold">Entregables visibles al final de cada sprint:</strong>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                "Roadmap actualizado",
+                "Diseño UI/UX",
+                "API Docs",
+                "Ambiente Staging",
+                "Pruebas QA",
+                "Demo funcional",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-4 py-2 rounded-full text-xs tracking-wider bg-jecamavi-gold/5 border border-jecamavi-gold/15 text-jecamavi-gold/80 font-medium"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

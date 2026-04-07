@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { nombre, correo, empresa, solucion, mensaje } = body;
+    const { nombre, correo, empresa, solucion, presupuesto, timeline, usuarios, industria, mensaje } = body;
 
     if (!nombre || !correo || !empresa || !solucion || !mensaje) {
       return NextResponse.json({ error: "Todos los campos son requeridos." }, { status: 400 });
@@ -50,6 +50,10 @@ export async function POST(request: Request) {
             <tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Correo</td><td style="padding:8px 0;"><a href="mailto:${correo}" style="color:#E6C068;text-decoration:none;">${correo}</a></td></tr>
             <tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Empresa</td><td style="padding:8px 0;color:#E6F1FF;">${empresa}</td></tr>
             <tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Categoría</td><td style="padding:8px 0;color:#E6C068;font-weight:600;">${route.label}</td></tr>
+            ${industria ? `<tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Industria</td><td style="padding:8px 0;color:#E6F1FF;">${industria}</td></tr>` : ''}
+            ${presupuesto ? `<tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Presupuesto</td><td style="padding:8px 0;color:#E6F1FF;">${presupuesto}</td></tr>` : ''}
+            ${timeline ? `<tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Timeline</td><td style="padding:8px 0;color:#E6F1FF;">${timeline}</td></tr>` : ''}
+            ${usuarios ? `<tr><td style="padding:8px 0;color:#8892B0;vertical-align:top;">Nº Usuarios</td><td style="padding:8px 0;color:#E6F1FF;">${usuarios}</td></tr>` : ''}
           </table>
 
           <div style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);">

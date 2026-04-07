@@ -8,7 +8,11 @@ interface Project {
   id: string;
   name: string;
   category: string;
-  potential: string;
+  problem: string;
+  solution: string;
+  result: string;
+  techs: string[];
+  timeline: string;
   images: string[];
   color: string;
 }
@@ -18,8 +22,11 @@ const projects: Project[] = [
     id: "nerve",
     name: "NERVE",
     category: "HealthTech SaaS",
-    potential:
-      "Ecosistema de gestión clínica avanzada, manejo de datos sensibles (cumplimiento HIPAA/GDPR) e interfaces médicas intuitivas.",
+    problem: "Gestión clínica fragmentada en papel con riesgo de datos sensibles.",
+    solution: "Ecosistema integral HIPAA/GDPR con interfaces médicas intuitivas.",
+    result: "↓ 80% carga administrativa del personal clínico.",
+    techs: ["React", "Node.js", "PostgreSQL", "AWS"],
+    timeline: "12 semanas",
     images: [
       "/proyectos/nerve/capture_01.png",
       "/proyectos/nerve/capture_02.png",
@@ -31,8 +38,11 @@ const projects: Project[] = [
     id: "gestoraq",
     name: "GESTORAQ",
     category: "Seguridad Industrial",
-    potential:
-      "Plataforma EdTech de cumplimiento normativo, automatización de certificados DC-3 y flujos de capacitación técnica.",
+    problem: "Certificados DC-3 y auditorías manejados en hojas de cálculo.",
+    solution: "Plataforma de cumplimiento normativo con automatización integral.",
+    result: "↓ 90% errores de certificación y auditoría.",
+    techs: ["Next.js", "Python", "FastAPI", "PostgreSQL"],
+    timeline: "10 semanas",
     images: [
       "/proyectos/gestoraq/capture_01.png",
       "/proyectos/gestoraq/capture_02.png",
@@ -44,8 +54,11 @@ const projects: Project[] = [
     id: "cunning-clothes",
     name: "Cunning Clothes",
     category: "High-Scale Retail",
-    potential:
-      "Ingeniería de e-commerce centrada en la conversión, logística digital sincronizada y escalabilidad transaccional global.",
+    problem: "Baja conversión digital e inventarios desincronizados entre canales.",
+    solution: "eCommerce con logística sincronizada y pasarelas de pago globales.",
+    result: "↑ 3x ventas digitales en el primer trimestre.",
+    techs: ["Next.js", "Stripe", "Node.js", "MongoDB"],
+    timeline: "8 semanas",
     images: [
       "/proyectos/cunning-clothes/capture_01.png",
       "/proyectos/cunning-clothes/capture_02.png",
@@ -57,8 +70,11 @@ const projects: Project[] = [
     id: "cmms-saas",
     name: "CMMS-SAAS",
     category: "Mantenimiento Industrial",
-    potential:
-      "Resiliencia tecnológica offline/online para entornos críticos, sincronización de datos y optimización de activos fijos.",
+    problem: "Seguimiento manual de mantenimientos con tiempos muertos impredecibles.",
+    solution: "CMMS multiusuario offline-first con sincronización inteligente.",
+    result: "↓ 62% en tiempos muertos de operación.",
+    techs: ["Flutter", "FastAPI", "PostgreSQL", "Docker"],
+    timeline: "14 semanas",
     images: [
       "/proyectos/cmms-saas/capture_01.png",
       "/proyectos/cmms-saas/capture_02.png",
@@ -70,8 +86,11 @@ const projects: Project[] = [
     id: "comeximtto",
     name: "COMEXIMTTO",
     category: "Logística Internacional",
-    potential:
-      "Trazabilidad de operaciones transfronterizas, dashboards analíticos y herramientas de decisión para comercio exterior.",
+    problem: "Trazabilidad nula en operaciones transfronterizas y decisiones sin datos.",
+    solution: "Dashboards analíticos con trazabilidad en tiempo real.",
+    result: "↑ 3x velocidad de operaciones aduaneras.",
+    techs: ["React", "Python", "Power BI", "AWS"],
+    timeline: "10 semanas",
     images: [
       "/proyectos/comeximtto/capture_01.png",
       "/proyectos/comeximtto/capture_02.png",
@@ -106,10 +125,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             ))}
           </div>
 
-          {/* Image overlay gradient */}
+          {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-jecamavi-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          {/* Image navigation dots */}
+          {/* Image dots */}
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
             {project.images.map((_, i) => (
               <button
@@ -133,17 +152,52 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         </div>
 
-        {/* Content */}
+        {/* Content — Mini Historia */}
         <div className="p-6">
-          <h3 className="font-heading text-xl tracking-wider text-jecamavi-dark dark:text-jecamavi-lightest-slate mb-2">
+          <h3 className="font-heading text-xl tracking-wider text-jecamavi-dark dark:text-jecamavi-lightest-slate mb-4">
             {project.name}
           </h3>
-          <div className="flex items-start gap-2">
-            <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-jecamavi-gold" />
-            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-              <span className="text-jecamavi-gold font-medium">Potencial:</span>{" "}
-              {project.potential}
-            </p>
+
+          {/* Problem → Solution → Result */}
+          <div className="space-y-3 mb-4">
+            <div className="flex items-start gap-2">
+              <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400/60" />
+              <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+                <span className="text-red-400/80 font-semibold">Problema:</span>{" "}
+                {project.problem}
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400/60" />
+              <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+                <span className="text-emerald-400/80 font-semibold">Solución:</span>{" "}
+                {project.solution}
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-jecamavi-gold/60" />
+              <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+                <span className="text-jecamavi-gold font-semibold">Resultado:</span>{" "}
+                {project.result}
+              </p>
+            </div>
+          </div>
+
+          {/* Footer: Techs + Timeline */}
+          <div className="pt-4 border-t border-[var(--border-color)] dark:border-white/5 flex items-center justify-between flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
+              {project.techs.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2 py-0.5 rounded text-[9px] tracking-wider uppercase bg-jecamavi-gold/10 text-jecamavi-gold/80 font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <span className="text-[10px] tracking-wider text-[var(--text-secondary)] opacity-60">
+              ⏱ {project.timeline}
+            </span>
           </div>
         </div>
       </div>
@@ -154,11 +208,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function ProjectsSection() {
   return (
     <section id="proyectos" className="section-padding relative">
-      {/* Background accent */}
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-jecamavi-gold/[0.03] to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header */}
         <ScrollReveal>
           <div className="text-center mb-6">
             <span className="inline-block font-heading text-xs tracking-[0.4em] uppercase text-jecamavi-gold mb-4">
@@ -168,7 +220,8 @@ export default function ProjectsSection() {
               Casos de Estudio
             </h2>
             <p className="body-text max-w-2xl mx-auto text-sm md:text-base">
-              Soluciones Industriales y Potencial Tecnológico
+              Cada proyecto cuenta una historia: un problema real, una solución precisa
+              y un resultado medible.
             </p>
           </div>
         </ScrollReveal>
@@ -181,7 +234,6 @@ export default function ProjectsSection() {
           </p>
         </ScrollReveal>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />

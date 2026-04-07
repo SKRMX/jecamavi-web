@@ -56,21 +56,21 @@ export default function HeroSection() {
         {/* H1 */}
         <ScrollReveal animation="animate-fade-in-up" delay={200}>
           <h1 className="heading-xl text-jecamavi-dark dark:text-jecamavi-lightest-slate mb-6">
-            Arquitectura Digital
+            Software a Medida que Escala
             <br />
-            <span className="text-gradient-gold">de Alto Rendimiento</span>
+            <span className="text-gradient-gold">tu Operación y Reduce Costos</span>
           </h1>
         </ScrollReveal>
 
         {/* Subheadline */}
         <ScrollReveal animation="animate-fade-in-up" delay={400}>
           <p className="body-text max-w-2xl mx-auto mb-10">
-            En JECAMAVI, destilamos la complejidad técnica para entregar{" "}
+            De Excel y WhatsApp a{" "}
             <strong className="text-jecamavi-gold font-semibold">
-              innovación esencial
+              plataformas de misión crítica
             </strong>
-            . Desarrollamos las soluciones de software, apps y e-commerce que
-            escalan tu visión global.
+            . Arquitectura digital que convierte complejidad operativa en ventaja
+            competitiva medible.
           </p>
         </ScrollReveal>
 

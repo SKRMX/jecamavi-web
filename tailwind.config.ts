@@ -38,6 +38,11 @@ const config: Config = {
         float: "float 6s ease-in-out infinite",
         "grid-flow": "gridFlow 20s linear infinite",
         shimmer: "shimmer 2s linear infinite",
+        marquee: "marquee 30s linear infinite",
+        "marquee-reverse": "marqueeReverse 30s linear infinite",
+        "accordion-open": "accordionOpen 0.3s ease-out forwards",
+        "accordion-close": "accordionClose 0.2s ease-out forwards",
+        "float-cta": "floatCTA 3s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -79,6 +84,26 @@ const config: Config = {
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        marqueeReverse: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        accordionOpen: {
+          "0%": { opacity: "0", maxHeight: "0px" },
+          "100%": { opacity: "1", maxHeight: "500px" },
+        },
+        accordionClose: {
+          "0%": { opacity: "1", maxHeight: "500px" },
+          "100%": { opacity: "0", maxHeight: "0px" },
+        },
+        floatCTA: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-4px)" },
         },
       },
       backgroundImage: {
