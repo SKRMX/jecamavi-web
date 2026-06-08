@@ -15,7 +15,7 @@ export default function ScrollReveal({
   className = "",
   animation = "animate-fade-in-up",
   delay = 0,
-  threshold = 0.15,
+  threshold = 0.05,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -24,11 +24,25 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    // Check if the element is already visible in the viewport on mount
+    const checkVisibility = () => {
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      return rect.top < (viewportHeight + 50) && rect.bottom > -50;
+    };
+
+    if (checkVisibility()) {
+      if (delay > 0) {
+        setTimeout(() => setIsVisible(true), delay);
+      } else {
+        setIsVisible(true);
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Apply delay via setTimeout instead of CSS animation-delay
-          // This prevents the element from being invisible during the delay period
           if (delay > 0) {
             setTimeout(() => setIsVisible(true), delay);
           } else {
@@ -37,7 +51,7 @@ export default function ScrollReveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold, rootMargin: "50px" }
+      { threshold, rootMargin: "50px 0px" }
     );
 
     observer.observe(el);
