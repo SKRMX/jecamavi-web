@@ -59,11 +59,19 @@ export default function ScrollReveal({
     return () => observer.disconnect();
   }, [threshold, delay]);
 
+  // Helper to restrict animations to desktop (md breakpoint) so they are disabled on mobile
+  const desktopAnimation = animation
+    .split(" ")
+    .map((cls) => (cls.startsWith("animate-") ? `md:${cls}` : cls))
+    .join(" ");
+
   return (
     <div
       ref={ref}
       className={`${className} transition-none ${
-        isVisible ? animation : "opacity-0 translate-y-4"
+        isVisible
+          ? `opacity-100 translate-y-0 ${desktopAnimation}`
+          : "opacity-100 translate-y-0 md:opacity-0 md:translate-y-4"
       }`}
       style={{
         willChange: isVisible ? "auto" : "opacity, transform",
